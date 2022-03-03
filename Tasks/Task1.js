@@ -1,4 +1,4 @@
-// Write a function sumTo(n) that calculates the sum of number 1 + 2 + ... + n
+/* Write a function sumTo(n) that calculates the sum of number 1 + 2 + ... + n */
 
 // 1. Using a for loop
 
@@ -31,3 +31,12 @@ function sumToArithmetic(n){
 }
 
 console.log(sumToArithmetic(100));
+
+
+/* Calculate factorial */
+
+function factorial(n){
+    return (n == 1) ? n : n * factorial(n-1);
+}
+
+console.log(factorial(5));
