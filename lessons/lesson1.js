@@ -80,4 +80,47 @@ function sumSalaries(deparment){
     }
 }
 
-alert(sumSalaries(company));
+// alert(sumSalaries(company));
+
+// RECURSIVE STRUCTURES
+
+// Linked list
+
+let arr = ['ob1','ob2','ob3']; //-- Expensive use arrrays to remove and insert element
+
+let list = {
+    value : 1,
+    next : {
+        value : 2,
+        next : {
+            value : 3,
+            next : {
+                value : 4, 
+                next : null
+            }
+        }
+    }
+};
+
+// alternative code
+list = { value : 1 };
+list.next = { value : 2 };
+list.next.next = { value : 3 };
+list.next.next.next = { value : 4 };
+list.next.next.next.next = { value : null };
+
+
+let secondList = list.next.next;
+list.next.next = null;
+
+// to join 
+
+list.next.next = secondList;
+
+// add a new value in head
+
+list = {value : "new item" , next : list};
+
+// remove value from the middle
+
+list.next = list.next.next;
