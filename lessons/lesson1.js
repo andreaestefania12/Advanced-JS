@@ -59,10 +59,25 @@ let company = {
             salary : 1800
         }],
     
-    internals:[{
+        internals:[{
             name : 'Jack',
             salary : 1300
         }],
     }
     
 }
+
+// Function sumSalaries
+function sumSalaries(deparment){
+    if(Array.isArray(deparment)){
+        return deparment.reduce((prev,current) => prev + current.salary,0);
+    } else {
+        let sum = 0;
+        for (let subdep of Object.values(deparment)){
+            sum += sumSalaries(subdep);
+        }
+        return sum;
+    }
+}
+
+alert(sumSalaries(company));
