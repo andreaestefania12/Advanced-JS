@@ -42,5 +42,37 @@ function f(){
     let showArg = () => alert(arguments[0]);
     showArg();
 }
-f(1);
+// f(1);
 
+// Spread systax
+
+// alert(Math.max(3,5,1));
+
+let arr = [3,5,1];
+// alert(Math.max(arr)); // doest work because expects a list of numeric argument not a single array
+
+// alert(Math.max(...arr)); // spread turn array into a list of arguments
+
+let arr1 = [1,-2,3,4];
+let arr2 = [8,3,-8,1];
+// Multiple iterables 
+// alert(Math.max(...arr1,...arr2));
+
+// Combine the spread syntax with normal values
+// alert(Math.max(...arr1,...arr2,25));
+
+// The spread syntax can be used to merge arrays
+let merge = [0, ...arr1,2,...arr2];
+console.log(merge);
+
+// Turn the string into array of characters
+
+let str = 'HELLO';
+console.log([...str]);
+
+// Arra.from converts an iterable into an array
+console.log(Array.from(str));
+
+
+// -- ARRAY FROM OPERATES ON BOTH ARRAY-LIKES AND ITERABLES
+// THE SPREAD SYNTAX WORKS ONLYYYYY WITH ITERABLES.
