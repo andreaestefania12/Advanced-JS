@@ -40,3 +40,24 @@ function factorial(n){
 }
 
 console.log(factorial(5));
+
+
+/* Fibonacci numbers */
+
+function fib(n){
+    if(n == 1 || n == 2){
+        return 1;
+    } else{
+        let f1 = 1;
+        let f2 =1;
+        let fn = 0;
+        for(let i = 3; i <= n; i++){
+            fn = f1 + f2;
+            f1 = f2;
+            f2 = fn; 
+        }
+        return fn;
+    }
+}
+
+console.log(fib(77));
