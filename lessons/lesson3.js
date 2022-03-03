@@ -71,3 +71,25 @@ let counter = makeCounter();
 console.log( counter() ); // 0
 console.log( counter() ); // 1
 console.log( counter() ); // 2
+
+// LEXICAL ENVIRONMENT
+
+let phrase = 'Hello';
+function say(name){
+    console.log(`${phrase},${name}`);
+}
+say('Jhon');
+
+
+function f() {
+    let value = Math.random();
+  
+    function g() {
+     // debugger; // in console: type alert(value); No such variable!
+    }
+  
+    return g;
+}
+  
+let g = f();
+g();
