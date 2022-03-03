@@ -76,3 +76,37 @@ console.log(Array.from(str));
 
 // -- ARRAY FROM OPERATES ON BOTH ARRAY-LIKES AND ITERABLES
 // THE SPREAD SYNTAX WORKS ONLYYYYY WITH ITERABLES.
+
+
+// COPY AND ARRAY/OBJECT
+arr = [1,2,3];
+let arrCopy = [...arr]; // spread the arrat into a list of parameters THEN put the result into a new array
+
+// do the arrays have the same contents?
+console.log(JSON.stringify(arr) == JSON.stringify(arrCopy)); 
+
+// are the arrays equal
+console.log(arr === arrCopy);
+
+// Modifying our initial array doesnt modify the copy
+arr.push(4);
+console.log(arr);
+console.log(arrCopy);
+
+let obj = {a : 1, b : 2, c : 3};
+let objCopy = {...obj} // spread the object into a list of parameters
+                        // then return the result in a new oobject
+
+// do the objects have the same contents? 
+console.log(JSON.stringify(obj) == JSON.stringify(objCopy)); 
+
+// are the arrays equal
+console.log(obj === objCopy);
+
+// Modifying our initial object doesnt modify the copy
+obj.d =4 ;
+console.log(obj);
+console.log(objCopy);
+
+// This way of copying an object is much shorter than let objCopy = Object.assign({}, obj)
+// or for an array let arrCopy = Object.assign([], arr) so we prefer to use it whenever we can.
