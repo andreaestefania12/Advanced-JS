@@ -93,3 +93,28 @@ list = {
 };
 printListLoop(list);
 printListRecursive(list);
+
+/*Output a reverse linked list*/
+
+
+function printReverseLoop(list){
+    let listRev = [];
+    while(list){
+        listRev.push(list.value);
+        list = list.next;
+    }
+
+    for(i=listRev.length - 1; i >= 0 ; i--){
+        console.log(listRev[i]);
+    }
+}
+
+function printReverseRecursive(list){    
+    if(list.next){
+        printReverseRecursive(list.next);
+    }    
+    console.log(list.value);
+}
+
+printReverseLoop(list);
+printReverseRecursive(list);
