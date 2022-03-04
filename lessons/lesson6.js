@@ -11,7 +11,7 @@ console.log(sayHi.name);*/
 let sayHi = function() {
     console.log("Hi");
 };*/
-console.log(sayHi.name);
+// console.log(sayHi.name);
 
 function f(sayHi = function() {}) {
     console.log(sayHi.name); 
@@ -67,7 +67,7 @@ function ask(question, ...handlers) {
 
 // Custom properties
 
-function sayHi() {
+/*function sayHi() {
     console.log("Hi");
   
     // let's count how many times we run
@@ -79,7 +79,7 @@ sayHi(); // Hi
 sayHi(); // Hi
   
 console.log( `Called ${sayHi.counter} times` ); // Called 2 times
-
+*/
 
 function makeCounter() {
     // instead of:
@@ -100,9 +100,58 @@ console.log( counter() );
 counter.count = 10;
 console.log( counter() );
 
+// Named Function Expression
+
+let sayHi = function(who) {
+    console.log(`Hello, ${who}`);
+};
+
+sayHi = function func(who) {
+    alert(`Hello, ${who}`);
+};
+
+sayHi = function func(who) {
+    if (who) {
+      console.log(`Hello, ${who}`);
+    } else {
+      func("Guest"); // use func to re-call itself
+    }
+  };
+  
+sayHi(); // Hello, Guest
+  
+// But this won't work:
+func(); // Error, func is not defined (not visible outside of the function)
 
 
+sayHi = function(who) {
+    if (who) {
+      alert(`Hello, ${who}`);
+    } else {
+      sayHi("Guest");
+    }
+};
 
+sayHi = function(who) {
+    if (who) {
+      alert(`Hello, ${who}`);
+    } else {
+      sayHi("Guest"); // Error: sayHi is not a function
+    }
+  };
+  
+let welcome = sayHi;
+sayHi = null;
+  
+welcome(); // Error, the nested sayHi call doesn't work any more!
 
-
-
+sayHi = function func(who) {
+    if (who) {
+      alert(`Hello, ${who}`);
+    } else {
+      func("Guest"); // Now all fine
+    }
+};
+welcome = sayHi;
+sayHi = null;
+welcome(); // Hello, Guest (nested call works)
