@@ -7,10 +7,10 @@
 }
   
 console.log(sayHi.name);*/
-
+/*
 let sayHi = function() {
     console.log("Hi");
-};
+};*/
 console.log(sayHi.name);
 
 function f(sayHi = function() {}) {
@@ -63,4 +63,46 @@ function ask(question, ...handlers) {
   
   // for positive answer, both handlers are called
   // for negative answer, only the second one
-ask("Question?", () => alert('You said yes'), result => alert(result));
+// ask("Question?", () => alert('You said yes'), result => alert(result));
+
+// Custom properties
+
+function sayHi() {
+    console.log("Hi");
+  
+    // let's count how many times we run
+    sayHi.counter++;
+}
+sayHi.counter = 0; // initial value
+  
+sayHi(); // Hi
+sayHi(); // Hi
+  
+console.log( `Called ${sayHi.counter} times` ); // Called 2 times
+
+
+function makeCounter() {
+    // instead of:
+    // let count = 0
+  
+    function counter() {
+      return counter.count++;
+    };
+  
+    counter.count = 0;
+    return counter;
+}
+  
+let counter = makeCounter();
+console.log( counter() ); 
+console.log( counter() ); 
+
+counter.count = 10;
+console.log( counter() );
+
+
+
+
+
+
+
